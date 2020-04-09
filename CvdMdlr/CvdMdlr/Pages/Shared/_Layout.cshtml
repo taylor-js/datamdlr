@@ -1,0 +1,276 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>coViz - Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://jsxgraph.org/distrib/jsxgraph.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body class="homepage is-preload">
+
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <div class="container">
+
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1><a href="index" id="logo" style="text-decoration: none;">Covid-19 API Visualizer</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+                                <li><a href="documentation">Documentation</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+                <div id="banner">
+                    <h2>
+                        <strong>Covid-19 Tracker:</strong> API - Data Modeler
+                        <br />
+                        Real Time Covid-19 Data Visualizer
+
+                    </h2>
+                    <h5 class="text-center text-white">More content to come soon</h5>
+                    <br>
+                    <a class="button" target="_blank" href="https://github.com/tsaintable/covid19datamodeler">
+                        View repo on Github
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="main-wrapper">
+            @RenderBody()
+        </div>
+
+        <div id="footer-wrapper">
+            <footer id="footer" class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div id="copyright">
+                            <ul class="menu">
+                                <li>&copy; Covid-19 Visualizer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="~/js/jquery.dropotron.min.js"></script>
+    <script src="~/js/browser.min.js"></script>
+    <script src="~/js/breakpoints.min.js"></script>
+    <script src="~/js/util.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.7/jsxgraphcore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.10.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.5.2"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+    <script src="~/viz/negative.js"></script>
+    <script>
+        vegaEmbed('#vis1', negjson);
+    </script>
+    <script src="~/viz/recovered.js"></script>
+    <script>
+        vegaEmbed('#vis2', recjson);
+    </script>
+    <script src="~/viz/positive.js"></script>
+    <script>
+        vegaEmbed('#vis3', posjson);
+    </script>
+    <script src="~/viz/hospitalized.js"></script>
+    <script>
+        vegaEmbed('#vis4', hosjson);
+    </script>
+    <script src="~/viz/death.js"></script>
+    <script>
+        vegaEmbed('#vis5', dejson);
+    </script>
+    <script src="~/viz/total.js"></script>
+    <script>
+        vegaEmbed('#vis6', tojson);
+    </script>
+    <script src="~/viz/multiplot.js"></script>
+    <script>
+        vegaEmbed('#visall', multi);
+    </script>
+    
+    <!--BODY-->
+    <script>
+        $(document).ready(function () {
+            $.getJSON("https://covidtracking.com/api/states", function (data) {
+                $('#groupstable').DataTable({
+                    "order": [[0, "desc"]],
+                    responsive: true,
+                    data: data,
+                    dataSrc: 'responseData',
+                    columns: [
+                        { data: "checkTimeEt" },
+                        { data: "state" },
+                        { data: "negative" },
+                        { data: "recovered" },
+                        { data: "positive" },
+                        { data: "hospitalized" },
+                        { data: "death" },
+                        { data: "total" },
+                    ]
+                });
+            });
+        });
+    </script>
+    <script>
+        function getHostName(url) {
+            var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+            if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+                return match[2];
+            }
+            else {
+                return null;
+            }
+        }
+        $(document).ready(function () {
+            $.getJSON("https://covidtracking.com/api/v1/states/info.json", function (data) {
+                $('#infotable').DataTable({
+                    "order": [[0, "asc"]],
+                    responsive: true,
+                    data: data,
+                    dataSrc: 'responseData',
+                    columns: [
+                        { data: "name" },
+                        {
+                            data: "covid19Site",
+                            render: function (data, type, row, meta) {
+                                if (type === 'display' && data !== null) {
+                                    data = '<a target="_blank" href="' + data + '">' + getHostName(data) + '</a>';
+                                }
+                                return data;
+                            }
+                        },
+                        {
+                            data: "covid19SiteSecondary",
+                            render: function (data, type, row, meta) {
+                                if (type === 'display' && data !== null) {
+                                    data = '<a target="_blank"  href="' + data + '">' + getHostName(data) + '</a>';
+                                }
+                                return data;
+                            }
+                        },
+                        {
+                            data: "twitter",
+                            render: function (data, type, row, meta) {
+                                if (type === 'display' && data !== null) {
+                                    data = '<a target="_blank" href="https://twitter.com/' + data + '">' + "Twitter" + '</a>';
+                                }
+                                return data;
+                            }
+                        }
+                    ]
+                });
+            });
+        });
+    </script>
+    <script>
+        var brd = JXG.JSXGraph.initBoard('jxgbox', { axis: true, boundingbox: [-5, 1.2, 100, -1.2] });
+
+        var S = brd.create('turtle', [], { strokeColor: 'blue', strokeWidth: 3 });
+        var I = brd.create('turtle', [], { strokeColor: 'red', strokeWidth: 3 });
+        var R = brd.create('turtle', [], { strokeColor: 'green', strokeWidth: 3 });
+
+        var s = brd.create('slider', [[0, -0.3], [30, -0.3], [0, 1.27E-6, 1]], { name: 's' });
+        //brd.create('text', [40, -0.3, "initially infected population rate (on load: I(0)=1.27E-6)"]);
+        var beta = brd.create('slider', [[0, -0.4], [30, -0.4], [0, 0.5, 1]], { name: '&beta;' });
+        //brd.create('text', [40, -0.4, "&beta;: infection rate"]);
+        var gamma = brd.create('slider', [[0, -0.5], [30, -0.5], [0, 0.3, 1]], { name: '&gamma;' });
+        //brd.create('text', [40, -0.5, "&gamma;: recovery rate = 1/(days of infection)"]);
+
+        var t = 0; // global
+
+        //brd.create('text', [40, -0.2,
+        //    function () {
+        //        return "Day " + t + ": infected=" + (7900000 * I.Y()).toFixed(1) + " recovered=" + (7900000 * R.Y()).toFixed(1);
+        //    }]
+        //);
+
+        S.hideTurtle();
+        I.hideTurtle();
+        R.hideTurtle();
+
+        function clearturtle() {
+            S.cs();
+            I.cs();
+            R.cs();
+
+            S.hideTurtle();
+            I.hideTurtle();
+            R.hideTurtle();
+        }
+
+        function run() {
+            S.setPos(0, 1.0 - s.Value());
+            R.setPos(0, 0);
+            I.setPos(0, s.Value());
+
+            delta = 1; // global
+            t = 0;  // global
+            loop();
+        }
+
+        function turtleMove(turtle, dx, dy) {
+            turtle.moveTo([dx + turtle.X(), dy + turtle.Y()]);
+        }
+
+        function loop() {
+            var dS = -beta.Value() * S.Y() * I.Y();
+            var dR = gamma.Value() * I.Y();
+            var dI = -(dS + dR);
+            turtleMove(S, delta, dS);
+            turtleMove(R, delta, dR);
+            turtleMove(I, delta, dI);
+
+            t += delta;
+            if (t < 100.0) {
+                active = setTimeout(loop, 10);
+            }
+        }
+
+        function stop() {
+            if (active) clearTimeout(active);
+            active = null;
+        }
+        function goOn() {
+            if (t > 0) {
+                if (active == null) {
+                    active = setTimeout(loop, 10);
+                }
+            } else {
+                run();
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
