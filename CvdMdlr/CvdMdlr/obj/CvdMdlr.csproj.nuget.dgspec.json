@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kb419\\OneDrive\\Documents\\GitHub\\CvdApiModeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj": {}
+    "D:\\covid19datamodeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kb419\\OneDrive\\Documents\\GitHub\\CvdApiModeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj": {
+    "D:\\covid19datamodeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kb419\\OneDrive\\Documents\\GitHub\\CvdApiModeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj",
+        "projectUniqueName": "D:\\covid19datamodeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj",
         "projectName": "CvdMdlr",
-        "projectPath": "C:\\Users\\kb419\\OneDrive\\Documents\\GitHub\\CvdApiModeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj",
+        "projectPath": "D:\\covid19datamodeler\\CvdMdlr\\CvdMdlr\\CvdMdlr.csproj",
         "packagesPath": "C:\\Users\\kb419\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kb419\\OneDrive\\Documents\\GitHub\\CvdApiModeler\\CvdMdlr\\CvdMdlr\\obj\\",
+        "outputPath": "D:\\covid19datamodeler\\CvdMdlr\\CvdMdlr\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kb419\\AppData\\Roaming\\NuGet\\NuGet.Config",

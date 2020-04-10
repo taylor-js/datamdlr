@@ -28,7 +28,7 @@
                     <div class="inner">
 
                         <!-- Logo -->
-                        <h1><a href="index" id="logo" style="text-decoration: none;">Covid-19 API Visualizer</a></h1>
+                        <h1><a href="index" id="logo" style="text-decoration: none;">Covid-19 Data Visualizer</a></h1>
 
                         <!-- Nav -->
                         <nav id="nav">
@@ -41,10 +41,9 @@
                 </header>
                 <div id="banner">
                     <h2>
-                        <strong>Covid-19 Tracker:</strong> API - Data Modeler
+                        <strong>Covid-19 Tracker - </strong>
                         <br />
-                        Real Time Covid-19 Data Visualizer
-
+                        Data Visualizer (US)                       
                     </h2>
                     <h5 class="text-center text-white">More content to come soon</h5>
                     <br>
@@ -111,11 +110,14 @@
     <script>
         vegaEmbed('#vis6', tojson);
     </script>
-    <script src="~/viz/multiplot.js"></script>
+    @*<script src="~/viz/multiplot.js"></script>
     <script>
         vegaEmbed('#visall', multi);
+    </script>*@
+    <script src="~/viz/multilog.js"></script>
+    <script>
+        vegaEmbed('#visalllog', multilog);
     </script>
-    
     <!--BODY-->
     <script>
         $(document).ready(function () {

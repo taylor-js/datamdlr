@@ -1,33 +1,38 @@
 var tojson = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "background": "#fff",
-  "padding": {
-    "top": 10,
-    "right": 10,
-    "bottom": 10,
-    "left": 10
+  "description": "A simple bar chart with embedded data.",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
   },
-  "width": 200,
-  "height": 200,
-  "title": {
-    "anchor": "start",
-    "text": "Total"
-  },
+  "background": "white",
+  "padding": 5,
+    "height": 200, "width": 400,
+    "title": {
+        "text": "Total",
+        "frame": "group"
+    },
   "style": "cell",
   "data": [
     {
       "name": "source_0",
-      "url": "https://covidtracking.com/api/us/daily",
+      "url": "https://covidtracking.com/api/us/daily.json",
       "format": {
         "type": "json",
         "parse": {
           "dateChecked": "date"
         }
-      },
-      "transform": [
+      }
+    }
+  ],
+  "signals": [
+    {
+      "name": "width",
+      "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+      "on": [
         {
-          "type": "filter",
-          "expr": "isValid(datum[\"total\"]) && isFinite(+datum[\"total\"]) && (isDate(datum[\"dateChecked\"]) || (isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"])))"
+          "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+          "events": "window:resize"
         }
       ]
     }
@@ -35,27 +40,30 @@ var tojson = {
   "marks": [
     {
       "name": "marks",
-      "type": "rect",
+      "type": "area",
       "style": [
-        "bar"
+        "area"
       ],
+      "sort": {
+        "field": "datum[\"dateChecked\"]"
+      },
       "from": {
         "data": "source_0"
       },
       "encode": {
         "update": {
+          "orient": {
+            "value": "vertical"
+          },
           "tooltip": {
-            "signal": "{\"total\": format(datum[\"total\"], \"\"), \"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y')}"
+            "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"total\": format(datum[\"total\"], \"\")}"
           },
           "fill": {
             "value": "#4c78a8"
           },
-          "xc": {
+          "x": {
             "scale": "x",
             "field": "dateChecked"
-          },
-          "width": {
-            "value": 20
           },
           "y": {
             "scale": "y",
@@ -64,6 +72,9 @@ var tojson = {
           "y2": {
             "scale": "y",
             "value": 0
+          },
+          "defined": {
+            "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"total\"]) && isFinite(+datum[\"total\"])"
           }
         }
       }
@@ -82,8 +93,7 @@ var tojson = {
         {
           "signal": "width"
         }
-      ],
-      "padding": 5
+      ]
     },
     {
       "name": "y",
@@ -157,70 +167,5 @@ var tojson = {
       "zindex": 0
     }
   ],
-  "config": {
-    "style": {
-      "guide-label": {
-        "font": "Arial, sans-serif",
-        "fontSize": 12
-      },
-      "guide-title": {
-        "font": "Arial, sans-serif",
-        "fontSize": 12
-      },
-      "group-title": {
-        "font": "Arial, sans-serif",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "dy": -3
-      },
-      "arc": {
-        "fill": "#3366CC"
-      },
-      "area": {
-        "fill": "#3366CC"
-      },
-      "rect": {
-        "fill": "#3366CC"
-      },
-      "circle": {
-        "fill": "#3366CC"
-      }
-    },
-    "path": {
-      "stroke": "#3366CC"
-    },
-    "shape": {
-      "stroke": "#3366CC"
-    },
-    "symbol": {
-      "stroke": "#3366CC"
-    },
-    "axis": {
-      "gridColor": "#ccc",
-      "tickColor": "#ccc",
-      "domain": false,
-      "grid": true
-    },
-    "range": {
-      "category": [
-        "#4285F4",
-        "#DB4437",
-        "#F4B400",
-        "#0F9D58",
-        "#AB47BC",
-        "#00ACC1",
-        "#FF7043",
-        "#9E9D24",
-        "#5C6BC0",
-        "#F06292",
-        "#00796B",
-        "#C2185B"
-      ],
-      "heatmap": [
-        "#c6dafc",
-        "#5e97f6",
-        "#2a56c6"
-      ]
-    }
-  }
+  "config": {}
 }

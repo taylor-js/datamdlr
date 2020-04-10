@@ -1,9 +1,5 @@
 var multi = {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "autosize": {
-        "type": "fit-x",
-        "contains": "padding"
-    },
     "background": "white",
     "padding": 5,
     "height": 500,
@@ -99,18 +95,6 @@ var multi = {
             ]
         }
     ],
-    "signals": [
-        {
-            "name": "width",
-            "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
-            "on": [
-                {
-                    "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
-                    "events": "window:resize"
-                }
-            ]
-        }
-    ],
     "marks": [
         {
             "name": "child__layer_negative_layer_0_marks",
@@ -142,7 +126,7 @@ var multi = {
                         "field": "mean_negative"
                     },
                     "strokeWidth": {
-                        "value": 3
+                        "value": 5
                     },
                     "defined": {
                         "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"mean_negative\"]) && isFinite(+datum[\"mean_negative\"])"
@@ -163,6 +147,9 @@ var multi = {
                 "update": {
                     "opacity": {
                         "value": 1
+                    },
+                    "size": {
+                        "value": 200
                     },
                     "tooltip": {
                         "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"Count\": format(datum[\"mean_negative\"], \"\")}"
@@ -212,7 +199,7 @@ var multi = {
                         "field": "mean_recovered"
                     },
                     "strokeWidth": {
-                        "value": 3
+                        "value": 5
                     },
                     "defined": {
                         "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"mean_recovered\"]) && isFinite(+datum[\"mean_recovered\"])"
@@ -233,6 +220,9 @@ var multi = {
                 "update": {
                     "opacity": {
                         "value": 1
+                    },
+                    "size": {
+                        "value": 200
                     },
                     "tooltip": {
                         "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"Count\": format(datum[\"mean_recovered\"], \"\")}"
@@ -282,7 +272,7 @@ var multi = {
                         "field": "mean_positive"
                     },
                     "strokeWidth": {
-                        "value": 3
+                        "value": 5
                     },
                     "defined": {
                         "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"mean_positive\"]) && isFinite(+datum[\"mean_positive\"])"
@@ -303,6 +293,9 @@ var multi = {
                 "update": {
                     "opacity": {
                         "value": 1
+                    },
+                    "size": {
+                        "value": 200
                     },
                     "tooltip": {
                         "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"Count\": format(datum[\"mean_positive\"], \"\")}"
@@ -352,7 +345,7 @@ var multi = {
                         "field": "mean_hospitalized"
                     },
                     "strokeWidth": {
-                        "value": 3
+                        "value": 5
                     },
                     "defined": {
                         "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"mean_hospitalized\"]) && isFinite(+datum[\"mean_hospitalized\"])"
@@ -373,6 +366,9 @@ var multi = {
                 "update": {
                     "opacity": {
                         "value": 1
+                    },
+                    "size": {
+                        "value": 200
                     },
                     "tooltip": {
                         "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"Count\": format(datum[\"mean_hospitalized\"], \"\")}"
@@ -422,7 +418,7 @@ var multi = {
                         "field": "mean_death"
                     },
                     "strokeWidth": {
-                        "value": 3
+                        "value": 5
                     },
                     "defined": {
                         "signal": "isValid(datum[\"dateChecked\"]) && isFinite(+datum[\"dateChecked\"]) && isValid(datum[\"mean_death\"]) && isFinite(+datum[\"mean_death\"])"
@@ -443,6 +439,9 @@ var multi = {
                 "update": {
                     "opacity": {
                         "value": 1
+                    },
+                    "size": {
+                        "value": 200
                     },
                     "tooltip": {
                         "signal": "{\"dateChecked\": timeFormat(datum[\"dateChecked\"], '%b %d, %Y'), \"Count\": format(datum[\"mean_death\"], \"\")}"
