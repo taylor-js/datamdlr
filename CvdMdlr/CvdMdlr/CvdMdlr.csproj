@@ -5,9 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\fonts\**" />
+    <Compile Remove="wwwroot\images\**" />
     <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\fonts\**" />
+    <Content Remove="wwwroot\images\**" />
     <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\images\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\fonts\**" />
+    <None Remove="wwwroot\images\**" />
     <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 
@@ -16,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\font-awesome.min.css" />
+    <Content Remove="wwwroot\css\fontawesome-all.min.css" />
+    <Content Remove="wwwroot\css\fonts.css" />
     <Content Remove="wwwroot\css\site.css" />
     <Content Remove="wwwroot\css\images\bg.png" />
   </ItemGroup>
