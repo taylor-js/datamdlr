@@ -5,7 +5,7 @@ var multilog = {
     "contains": "padding"
   },
   "background": "white",
-  "padding": 5,
+    "padding": 5,
     "height": 500,
     "width": "container",
 

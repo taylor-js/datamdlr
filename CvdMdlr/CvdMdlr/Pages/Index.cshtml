@@ -4,41 +4,99 @@
     ViewData["Title"] = "Home page";
 }
 
-
 <!--BODY-->
 <div id="main-wrapper">
     <div class="wrapper style1">
         <h2 class="text-center">Graphs of Affected</h2>
         <p class="text-center">Groups: Tested negative, recovered, tested positive, hospitalized, death and total. Charts and tables are automatically updated daily.</p><br /><br />
 
+        <div class="container" >
+            @*<div id="vismap" style="width:100%;"></div>*@
+            <div id="visalllog" style="width:100%;"></div>
+        </div>
+
         <div class="inner container">
-             <br />
+            <br />
             <div style="width:100%;" id="visalllog"></div>
             <div class=" text-center">
-
                 <div class="cards row justify-content-md-center">
-                    <div class="card vis1 col-12-small col-6-medium col-6-large">
+                    <div class="card vis1 col-12-small col-6-medium col-4-large">
                         <div id="vis1"></div>
                     </div>
-                    <div class="card vis2 col-12-small col-6-medium col-6-large">
+                    <div class="card vis2 col-12-small col-6-medium col-4-large">
                         <div id="vis2"></div>
                     </div>
-                    <div class="card vis3 col-12-small col-6-medium col-6-large">
+                    <div class="card vis3 col-12-small col-6-medium col-4-large">
                         <div id="vis3"></div>
                     </div>
-                    <div class="card vis4 col-12-small col-6-medium col-6-large">
+                    <div class="card vis4 col-12-small col-6-medium col-4-large">
                         <div id="vis4"></div>
                     </div>
-                    <div class="card vis5 col-12-small col-6-medium col-6-large">
+                    <div class="card vis5 col-12-small col-6-medium col-4-large">
                         <div id="vis5"></div>
                     </div>
-                    <div class="card vis6 col-12-small col-6-medium col-6-large">
+                    <div class="card vis6 col-12-small col-6-medium col-4-large">
                         <div id="vis6"></div>
                     </div>
                 </div>
             </div>
             <br />
+            <div class=" text-center">
+                <div class="cards row justify-content-md-center">
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AL"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AK"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AZ"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AR"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-CA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-CO"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-CT"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-DE"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-FL"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-GA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-HI"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-ID"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-IL"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-IN"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-IA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-KS"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-KY"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-LA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-ME"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MD"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MI"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MN"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MS"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MO"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-MT"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NE"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NV"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NH"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NJ"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NM"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NY"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-NC"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-ND"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-OH"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-OK"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-OR"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-PA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-RI"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-SC"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-SD"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-TN"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-TX"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-UT"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-VT"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-VA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WA"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WV"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WI"></div></div>
+                    <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WY"></div></div>
+                    @*<div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-DC"></div></div>*@
 
+                </div>
+            </div>
             <br />
 
             <h2 class="text-center">Table of all Affected</h2>
@@ -59,10 +117,7 @@
             </table>
             <br />
 
-
             @*<div style="width:100%;" id="visall"></div>*@
-
-           
 
             <br /><br />
 
@@ -81,26 +136,7 @@
             <br />
 
             <br />
-            @*<h2 class="text-center">SIR Model</h2>
 
-            <div id="jxgbox" class="jxgbox" onmousedown="return false" style="width:100%; height:500px">
-            </div>
-            <br />
-
-            <form>
-                <input type="button" value="clear and run a simulation of 100 days" onclick="clearturtle();run()">
-                <input type="button" value="stop" onclick="stop()">
-                <input type="button" value="continue" onclick="goOn()">
-            </form>
-            <br />
-            <p>
-                <text>s: initially infected population rate (on load: I(0)=1.27E-6)</text><br>
-                <text>&beta;: infection rate</text><br>
-                <text>&gamma;: recovery rate = 1/(days of infection)</text><br>
-                <text style="color:blue">* Blue: Rate of susceptible population</text><br>
-                <text style="color:red">* Red: Rate of infected population</text><br>
-                <text style="color:green">* Green: Rate of recovered population (which means: immune, isolated or dead)</text><br>
-            </p>*@
         </div>
     </div>
 </div>

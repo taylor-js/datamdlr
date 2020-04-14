@@ -43,7 +43,7 @@
                     <h2>
                         <strong>Covid-19 Tracker - </strong>
                         <br />
-                        Data Visualizer (US)                       
+                        Data Visualizer (US)
                     </h2>
                     <h5 class="text-center text-white">More content to come soon</h5>
                     <br>
@@ -86,6 +86,65 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
+    @*<script src="~/viz/us-states.js"></script>
+    <script>
+        vegaEmbed('#vismap', usstates);
+    </script>*@
+    @*  *@
+    <script src="~/viz/multi-pie.js"></script>
+    <script>
+        vegaEmbed('#vispie-AL', multipiechart_AL);
+        vegaEmbed('#vispie-AK', multipiechart_AK);
+        vegaEmbed('#vispie-AZ', multipiechart_AZ);
+        vegaEmbed('#vispie-AR', multipiechart_AR);
+        vegaEmbed('#vispie-CA', multipiechart_CA);
+        vegaEmbed('#vispie-CO', multipiechart_CO);
+        vegaEmbed('#vispie-CT', multipiechart_CT);
+        vegaEmbed('#vispie-DE', multipiechart_DE);
+        vegaEmbed('#vispie-FL', multipiechart_FL);
+        vegaEmbed('#vispie-GA', multipiechart_GA);
+        vegaEmbed('#vispie-HI', multipiechart_HI);
+        vegaEmbed('#vispie-ID', multipiechart_ID);
+        vegaEmbed('#vispie-IL', multipiechart_IL);
+        vegaEmbed('#vispie-IN', multipiechart_IN);
+        vegaEmbed('#vispie-IA', multipiechart_IA);
+        vegaEmbed('#vispie-KS', multipiechart_KS);
+        vegaEmbed('#vispie-KY', multipiechart_KY);
+        vegaEmbed('#vispie-LA', multipiechart_LA);
+        vegaEmbed('#vispie-ME', multipiechart_ME);
+        vegaEmbed('#vispie-MD', multipiechart_MD);
+        vegaEmbed('#vispie-MA', multipiechart_MA);
+        vegaEmbed('#vispie-MI', multipiechart_MI);
+        vegaEmbed('#vispie-MN', multipiechart_MN);
+        vegaEmbed('#vispie-MS', multipiechart_MS);
+        vegaEmbed('#vispie-MO', multipiechart_MO);
+        vegaEmbed('#vispie-MT', multipiechart_MT);
+        vegaEmbed('#vispie-NE', multipiechart_NE);
+        vegaEmbed('#vispie-NV', multipiechart_NV);
+        vegaEmbed('#vispie-NH', multipiechart_NH);
+        vegaEmbed('#vispie-NJ', multipiechart_NJ);
+        vegaEmbed('#vispie-NM', multipiechart_NM);
+        vegaEmbed('#vispie-NY', multipiechart_NY);
+        vegaEmbed('#vispie-NC', multipiechart_NC);
+        vegaEmbed('#vispie-ND', multipiechart_ND);
+        vegaEmbed('#vispie-OH', multipiechart_OH);
+        vegaEmbed('#vispie-OK', multipiechart_OK);
+        vegaEmbed('#vispie-OR', multipiechart_OR);
+        vegaEmbed('#vispie-PA', multipiechart_PA);
+        vegaEmbed('#vispie-RI', multipiechart_RI);
+        vegaEmbed('#vispie-SC', multipiechart_SC);
+        vegaEmbed('#vispie-SD', multipiechart_SD);
+        vegaEmbed('#vispie-TN', multipiechart_TN);
+        vegaEmbed('#vispie-TX', multipiechart_TX);
+        vegaEmbed('#vispie-UT', multipiechart_UT);
+        vegaEmbed('#vispie-VT', multipiechart_VT);
+        vegaEmbed('#vispie-VA', multipiechart_VA);
+        vegaEmbed('#vispie-WA', multipiechart_WA);
+        vegaEmbed('#vispie-WV', multipiechart_WV);
+        vegaEmbed('#vispie-WI', multipiechart_WI);
+        vegaEmbed('#vispie-WY', multipiechart_WY);
+        vegaEmbed('#vispie-DC', multipiechart_DC);
+    </script>
     <script src="~/viz/negative.js"></script>
     <script>
         vegaEmbed('#vis1', negjson);
@@ -111,9 +170,9 @@
         vegaEmbed('#vis6', tojson);
     </script>
     @*<script src="~/viz/multiplot.js"></script>
-    <script>
-        vegaEmbed('#visall', multi);
-    </script>*@
+        <script>
+            vegaEmbed('#visall', multi);
+        </script>*@
     <script src="~/viz/multilog.js"></script>
     <script>
         vegaEmbed('#visalllog', multilog);
