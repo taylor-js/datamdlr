@@ -1,7 +1,10 @@
 ﻿@page
 @model IndexModel
+@using CvdMdlr.Pages;
+
 @{
     ViewData["Title"] = "Home page";
+    List<Pages.State> state = new List<Pages.State>();
 }
 
 <!--BODY-->
@@ -10,7 +13,7 @@
         <h2 class="text-center">Graphs of Affected</h2>
         <p class="text-center">Groups: Tested negative, recovered, tested positive, hospitalized, death and total. Charts and tables are automatically updated daily.</p><br /><br />
 
-        <div class="container" >
+        <div class="container">
             @*<div id="vismap" style="width:100%;"></div>*@
             <div id="visalllog" style="width:100%;"></div>
         </div>
@@ -43,6 +46,10 @@
             <br />
             <div class=" text-center">
                 <div class="cards row justify-content-md-center">
+                    @*@foreach (var item in state)
+                    {
+                        <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="@item.DivId"></div></div>
+                    }*@
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AL"></div></div>
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AK"></div></div>
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-AZ"></div></div>
@@ -93,8 +100,6 @@
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WV"></div></div>
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WI"></div></div>
                     <div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-WY"></div></div>
-                    @*<div class="card vis6 col-12-small col-4-medium col-4-large"><div style="width:100%;" id="vispie-DC"></div></div>*@
-
                 </div>
             </div>
             <br />
