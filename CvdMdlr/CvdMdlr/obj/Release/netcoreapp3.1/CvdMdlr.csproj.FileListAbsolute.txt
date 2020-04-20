@@ -1059,3 +1059,4 @@ D:\covid19datamodeler\CvdMdlr\CvdMdlr\obj\Release\netcoreapp3.1\staticwebassets\
 D:\covid19datamodeler\CvdMdlr\CvdMdlr\obj\Release\netcoreapp3.1\CvdMdlr.dll
 D:\covid19datamodeler\CvdMdlr\CvdMdlr\obj\Release\netcoreapp3.1\CvdMdlr.pdb
 D:\covid19datamodeler\CvdMdlr\CvdMdlr\obj\Release\netcoreapp3.1\CvdMdlr.genruntimeconfig.cache
+D:\covid19datamodeler\CvdMdlr\CvdMdlr\obj\Release\netcoreapp3.1\CvdMdlr.csprojAssemblyReference.cache
